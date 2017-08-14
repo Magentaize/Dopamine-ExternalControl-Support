@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Track">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlbumID" type="xs:long" />
+      <xs:element minOccurs="0" name="ArtistID" type="xs:long" />
+      <xs:element minOccurs="0" name="BitRate" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="DateAdded" type="xs:long" />
+      <xs:element minOccurs="0" name="DateFileModified" type="xs:long" />
+      <xs:element minOccurs="0" name="DateLastSynced" type="xs:long" />
+      <xs:element minOccurs="0" name="DiscCount" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="DiscNumber" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="FolderID" type="xs:long" />
+      <xs:element minOccurs="0" name="GenreID" type="xs:long" />
+      <xs:element minOccurs="0" name="HasLyrics" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="MetaDataHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NeedsIndexing" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SafePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SampleRate" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="TrackCount" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="TrackID" type="xs:long" />
+      <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="TrackTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Track" nillable="true" type="tns:Track" />
+</xs:schema>

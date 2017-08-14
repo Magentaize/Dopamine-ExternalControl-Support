@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ac8c73e1-3ce0-44de-ba56-697967a533a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.pipe://localhost/Dopamine/ExternalControlService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ExternalControl.wsdl" MetadataType="Wsdl" ID="30ca93ee-18fe-4a7f-aded-4734e6d7854c" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="55dd9ff5-18c1-4ffd-b76d-1f27b5c61b72" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+    <MetadataFile FileName="ExternalControl.xsd" MetadataType="Schema" ID="cd0fe451-8337-4748-b736-02f8616cd3f1" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="aa6a972f-a017-43d1-bba9-a3eaea036f92" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+    <MetadataFile FileName="Dopamine.Common.Database.xsd" MetadataType="Schema" ID="47a61e10-d3d3-4173-bacf-6aa37345b9dd" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+    <MetadataFile FileName="Dopamine.Common.Database.Entities.xsd" MetadataType="Schema" ID="81bb970b-9467-4f68-b271-23eff843133b" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" />
+  <xs:complexType name="PlayableTrack">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" base="q1:Track">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlbumArtist" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AlbumTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AlbumYear" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateLastPlayed" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="GenreName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Love" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="PlayCount" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="SkipCount" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlayableTrack" nillable="true" type="tns:PlayableTrack" />
+</xs:schema>

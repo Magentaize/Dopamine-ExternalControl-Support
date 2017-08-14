@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="ExternalControl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="ExternalControl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="ExternalControl/Imports">
+      <xsd:import namespace="ExternalControl" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExternalControlServer_RegisterClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClient" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RegisterClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_DeregisterClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeregisterClient" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_PlayNext_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlayNext" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_PlayNext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlayNextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_PlayPrevious_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlayPrevious" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_PlayPrevious_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlayPreviousResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SetMute_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetMute" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SetMute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetMuteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_PlayOrPause_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlayOrPause" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_PlayOrPause_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlayOrPauseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetIsStopped_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsStopped" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetIsStopped_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsStoppedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetIsPlaying_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsPlaying" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetIsPlaying_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsPlayingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgress" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SetProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetProgress" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SetProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetCurrenTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrenTrack" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetCurrenTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrenTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetCurrentTrackArtworkPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTrackArtworkPath" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_GetCurrentTrackArtworkPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTrackArtworkPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SendHeartBeat_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendHeartBeat" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SendHeartBeat_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendHeartBeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackSuccess_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackSuccess" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackSuccess_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackSuccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackStopped_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackStopped" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackStopped_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackStoppedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackPaused_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackPaused" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackPaused_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackPausedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackResumed_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackResumed" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackResumed_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackResumedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackProgressChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackProgressChanged" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackProgressChanged_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackProgressChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackVolumeChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackVolumeChanged" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackVolumeChanged_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackVolumeChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackMuteChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackMuteChanged" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlaybackMuteChanged_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlaybackMuteChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlayingTrackPlaybackInfoChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlayingTrackPlaybackInfoChanged" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlayingTrackPlaybackInfoChanged_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlayingTrackPlaybackInfoChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlayingTrackArtworkChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlayingTrackArtworkChanged" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_RaiseEventPlayingTrackArtworkChanged_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RaiseEventPlayingTrackArtworkChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFftDataServer_GetFftData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFftData" />
+  </wsdl:message>
+  <wsdl:message name="IFftDataServer_GetFftData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFftDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IExternalControlServer">
+    <wsdl:operation name="RegisterClient">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RegisterClient" message="tns:IExternalControlServer_RegisterClient_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RegisterClientResponse" message="tns:IExternalControlServer_RegisterClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeregisterClient">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/DeregisterClient" message="tns:IExternalControlServer_DeregisterClient_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayNext">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/PlayNext" message="tns:IExternalControlServer_PlayNext_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/PlayNextResponse" message="tns:IExternalControlServer_PlayNext_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayPrevious">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/PlayPrevious" message="tns:IExternalControlServer_PlayPrevious_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/PlayPreviousResponse" message="tns:IExternalControlServer_PlayPrevious_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMute">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/SetMute" message="tns:IExternalControlServer_SetMute_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/SetMuteResponse" message="tns:IExternalControlServer_SetMute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayOrPause">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/PlayOrPause" message="tns:IExternalControlServer_PlayOrPause_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/PlayOrPauseResponse" message="tns:IExternalControlServer_PlayOrPause_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIsStopped">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/GetIsStopped" message="tns:IExternalControlServer_GetIsStopped_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/GetIsStoppedResponse" message="tns:IExternalControlServer_GetIsStopped_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIsPlaying">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/GetIsPlaying" message="tns:IExternalControlServer_GetIsPlaying_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/GetIsPlayingResponse" message="tns:IExternalControlServer_GetIsPlaying_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgress">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/GetProgress" message="tns:IExternalControlServer_GetProgress_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/GetProgressResponse" message="tns:IExternalControlServer_GetProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProgress">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/SetProgress" message="tns:IExternalControlServer_SetProgress_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/SetProgressResponse" message="tns:IExternalControlServer_SetProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrenTrack">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/GetCurrenTrack" message="tns:IExternalControlServer_GetCurrenTrack_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/GetCurrenTrackResponse" message="tns:IExternalControlServer_GetCurrenTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTrackArtworkPath">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/GetCurrentTrackArtworkPath" message="tns:IExternalControlServer_GetCurrentTrackArtworkPath_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/GetCurrentTrackArtworkPathResponse" message="tns:IExternalControlServer_GetCurrentTrackArtworkPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendHeartBeat">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/SendHeartBeat" message="tns:IExternalControlServer_SendHeartBeat_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/SendHeartBeatResponse" message="tns:IExternalControlServer_SendHeartBeat_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlaybackSuccess">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackSuccess" message="tns:IExternalControlServer_RaiseEventPlaybackSuccess_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackSuccessResponse" message="tns:IExternalControlServer_RaiseEventPlaybackSuccess_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlaybackStopped">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackStopped" message="tns:IExternalControlServer_RaiseEventPlaybackStopped_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackStoppedResponse" message="tns:IExternalControlServer_RaiseEventPlaybackStopped_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlaybackPaused">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackPaused" message="tns:IExternalControlServer_RaiseEventPlaybackPaused_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackPausedResponse" message="tns:IExternalControlServer_RaiseEventPlaybackPaused_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlaybackResumed">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackResumed" message="tns:IExternalControlServer_RaiseEventPlaybackResumed_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackResumedResponse" message="tns:IExternalControlServer_RaiseEventPlaybackResumed_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlaybackProgressChanged">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackProgressChanged" message="tns:IExternalControlServer_RaiseEventPlaybackProgressChanged_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackProgressChangedResponse" message="tns:IExternalControlServer_RaiseEventPlaybackProgressChanged_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlaybackVolumeChanged">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackVolumeChanged" message="tns:IExternalControlServer_RaiseEventPlaybackVolumeChanged_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackVolumeChangedResponse" message="tns:IExternalControlServer_RaiseEventPlaybackVolumeChanged_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlaybackMuteChanged">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackMuteChanged" message="tns:IExternalControlServer_RaiseEventPlaybackMuteChanged_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackMuteChangedResponse" message="tns:IExternalControlServer_RaiseEventPlaybackMuteChanged_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlayingTrackPlaybackInfoChanged">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlayingTrackPlaybackInfoChanged" message="tns:IExternalControlServer_RaiseEventPlayingTrackPlaybackInfoChanged_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlayingTrackPlaybackInfoChangedResponse" message="tns:IExternalControlServer_RaiseEventPlayingTrackPlaybackInfoChanged_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RaiseEventPlayingTrackArtworkChanged">
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlayingTrackArtworkChanged" message="tns:IExternalControlServer_RaiseEventPlayingTrackArtworkChanged_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlayingTrackArtworkChangedResponse" message="tns:IExternalControlServer_RaiseEventPlayingTrackArtworkChanged_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFftDataServer">
+    <wsdl:operation name="GetFftData">
+      <wsdl:input wsam:Action="ExternalControl/IFftDataServer/GetFftData" message="tns:IFftDataServer_GetFftData_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IFftDataServer/GetFftDataResponse" message="tns:IFftDataServer_GetFftData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
