@@ -2,7 +2,7 @@
 A plug-in to add Dopamine external control support
 
 ## How to use it
-Add reference `Dopamine.ExternalControl.Support` in your project, and use in-built factory method to create Dopamine plug-in client. There's a simple sample in the other folder. For more APIs, please look at here: [IExternalControlServer](https://github.com/Magentaize/Dopamine/blob/master/Dopamine.Common/Services/ExternalControl/IExternalControlServer.cs), [IFftDataServer](https://github.com/Magentaize/Dopamine/blob/master/Dopamine.Common/Services/ExternalControl/IFftDataServer.cs)
+Add reference `Dopamine.ExternalControl.Support` in your project, and use in-built factory method to create Dopamine plug-in client. There's a simple sample in the other folder. For more APIs, please look here: [IExternalControlServer](https://github.com/Magentaize/Dopamine/blob/master/Dopamine.Common/Services/ExternalControl/IExternalControlServer.cs), [IFftDataServer](https://github.com/Magentaize/Dopamine/blob/master/Dopamine.Common/Services/ExternalControl/IFftDataServer.cs)
 
 ### How to control behaviors of Dopamine
 After create a IExternalControlServer, you can simply use `IExternalControlServer.PlayNext()` to force Dopamine to play next track and so on.
