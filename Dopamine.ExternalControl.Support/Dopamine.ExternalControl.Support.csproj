@@ -38,6 +38,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExternalControlChannelFactory.cs" />
@@ -55,10 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\Interface\Dopamine.Common.Database.Entities.xsd">
+    <None Include="Connected Services\Interface\Dopamine.Core.Database.Entities.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Interface\Dopamine.Common.Database.xsd">
+    <None Include="Connected Services\Interface\Dopamine.Core.Database.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Interface\Dopamine.ExternalControl.Support.Interface.PlayableTrack.datasource">

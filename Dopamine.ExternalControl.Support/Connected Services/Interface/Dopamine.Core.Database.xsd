@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database.Entities" />
   <xs:complexType name="PlayableTrack">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" base="q1:Track">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database.Entities" base="q1:Track">
         <xs:sequence>
           <xs:element minOccurs="0" name="AlbumArtist" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="AlbumTitle" nillable="true" type="xs:string" />

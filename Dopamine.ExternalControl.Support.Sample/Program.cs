@@ -28,7 +28,6 @@ namespace Dopamine.ExternalControl.Support.Sample
                 Environment.Exit(0);
             }
 
-
             IFftDataServer fftDataServer = null;
             try
             {
@@ -41,23 +40,20 @@ namespace Dopamine.ExternalControl.Support.Sample
                 Environment.Exit(0);
             }
 
-            ExternalControlServerFactory.CreateFftDataMemoryMap(out MemoryMappedFile map, out Mutex mapStreamMutex,
-                out MemoryMappedViewStream mapViewStream, out byte[] fftData);
+            ExternalControlServerFactory.CreateFftDataMemoryMap(fftDataServer, out MemoryMappedFile map, out MemoryMappedViewStream mapViewStream, out byte[] fftData);
             var fftFloat = new float[fftData.Length / sizeof(float)];
             var reader = new BinaryReader(mapViewStream);
             try
             {
                 fftDataServer.GetFftData();
                 mapViewStream.Seek(0, SeekOrigin.Begin);
-                mapStreamMutex.WaitOne();
                 fftData = reader.ReadBytes(fftData.Length);
-                mapStreamMutex.ReleaseMutex();
                 Buffer.BlockCopy(fftData, 0, fftFloat, 0, fftData.Length);
                 foreach (var fft in fftFloat)
                 {
                     Console.WriteLine(fft);
                 }
-                Console.ReadLine();
+                //Console.ReadLine();
             }
             catch (Exception ex)
             {
@@ -67,8 +63,7 @@ namespace Dopamine.ExternalControl.Support.Sample
             {
                 reader.Dispose();
                 mapViewStream.Dispose();
-                mapStreamMutex.Dispose();
-                map.Dispose();
+                map?.Dispose();
             }
         }
 

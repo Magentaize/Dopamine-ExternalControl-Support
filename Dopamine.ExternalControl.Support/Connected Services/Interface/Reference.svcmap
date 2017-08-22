@@ -26,8 +26,8 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="55dd9ff5-18c1-4ffd-b76d-1f27b5c61b72" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
     <MetadataFile FileName="ExternalControl.xsd" MetadataType="Schema" ID="cd0fe451-8337-4748-b736-02f8616cd3f1" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="aa6a972f-a017-43d1-bba9-a3eaea036f92" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
-    <MetadataFile FileName="Dopamine.Common.Database.xsd" MetadataType="Schema" ID="47a61e10-d3d3-4173-bacf-6aa37345b9dd" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
-    <MetadataFile FileName="Dopamine.Common.Database.Entities.xsd" MetadataType="Schema" ID="81bb970b-9467-4f68-b271-23eff843133b" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+    <MetadataFile FileName="Dopamine.Core.Database.xsd" MetadataType="Schema" ID="2b4847c3-467b-43b8-9d99-26ef1ff84c10" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
+    <MetadataFile FileName="Dopamine.Core.Database.Entities.xsd" MetadataType="Schema" ID="340c964c-7d47-4270-b19e-2d14542cf253" SourceId="1" SourceUrl="net.pipe://localhost/Dopamine/ExternalControlService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="ExternalControl" elementFormDefault="qualified" targetNamespace="ExternalControl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database" />
   <xs:element name="RegisterClient">
     <xs:complexType>
       <xs:sequence />
@@ -18,6 +18,16 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendHeartbeat">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendHeartbeatResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="PlayNext">
@@ -118,7 +128,7 @@
   <xs:element name="GetCurrenTrackResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" minOccurs="0" name="GetCurrenTrackResult" nillable="true" type="q1:PlayableTrack" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database" minOccurs="0" name="GetCurrenTrackResult" nillable="true" type="q1:PlayableTrack" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,16 +144,6 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="GetCurrentTrackArtworkPathResult" nillable="true" type="xs:string" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SendHeartBeat">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SendHeartBeatResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="RaiseEventPlaybackSuccess">
@@ -236,6 +236,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetFftDataSize">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFftDataSizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFftDataSizeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetFftData">
     <xs:complexType>
       <xs:sequence />
@@ -243,9 +255,7 @@
   </xs:element>
   <xs:element name="GetFftDataResponse">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetFftDataResult" type="xs:boolean" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

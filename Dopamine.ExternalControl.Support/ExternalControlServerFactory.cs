@@ -21,14 +21,12 @@ namespace Dopamine.ExternalControl.Support
             return ExternalControlChannelFactory.CreateFftDataServerFactory().CreateChannel();
         }
 
-
-        private const int FftDataLength = 256 * sizeof(float);
-        public static void CreateFftDataMemoryMap(out MemoryMappedFile map, out Mutex mapStreamMutex, out MemoryMappedViewStream mapViewStream, out byte[] fftData)
+        public static void CreateFftDataMemoryMap(IFftDataServer fftDataServer, out MemoryMappedFile map, out MemoryMappedViewStream mapViewStream, out byte[] fftData)
         {
+            var fftDataSize = fftDataServer.GetFftDataSize();
             map = MemoryMappedFile.OpenExisting("DopamineFftDataMemory", MemoryMappedFileRights.Read);
-            mapStreamMutex = Mutex.OpenExisting("DopamineFftDataMemoryMutex");
-            mapViewStream = map.CreateViewStream(0, FftDataLength, MemoryMappedFileAccess.Read);
-            fftData = new byte[FftDataLength];
+            mapViewStream = map.CreateViewStream(0, fftDataSize, MemoryMappedFileAccess.CopyOnWrite);
+            fftData = new byte[fftDataSize];
         }
     }
 }

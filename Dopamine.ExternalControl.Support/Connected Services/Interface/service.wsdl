@@ -95,6 +95,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="SendHeartbeat">
+      <soap12:operation soapAction="ExternalControl/IExternalControlServer/SendHeartbeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PlayNext">
       <soap12:operation soapAction="ExternalControl/IExternalControlServer/PlayNext" style="document" />
       <wsdl:input>
@@ -178,15 +187,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetCurrentTrackArtworkPath">
       <soap12:operation soapAction="ExternalControl/IExternalControlServer/GetCurrentTrackArtworkPath" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendHeartBeat">
-      <soap12:operation soapAction="ExternalControl/IExternalControlServer/SendHeartBeat" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -280,6 +280,15 @@
     <wsp:PolicyReference URI="#NetNamedPipeBinding_IFftDataServer_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/named-pipe" />
+    <wsdl:operation name="GetFftDataSize">
+      <soap12:operation soapAction="ExternalControl/IFftDataServer/GetFftDataSize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetFftData">
       <soap12:operation soapAction="ExternalControl/IFftDataServer/GetFftData" style="document" />
       <wsdl:input>

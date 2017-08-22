@@ -4,8 +4,8 @@
     <xsd:schema targetNamespace="ExternalControl/Imports">
       <xsd:import namespace="ExternalControl" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database.Entities" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IExternalControlServer_RegisterClient_InputMessage">
@@ -16,6 +16,12 @@
   </wsdl:message>
   <wsdl:message name="IExternalControlServer_DeregisterClient_InputMessage">
     <wsdl:part name="parameters" element="tns:DeregisterClient" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SendHeartbeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendHeartbeat" />
+  </wsdl:message>
+  <wsdl:message name="IExternalControlServer_SendHeartbeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendHeartbeatResponse" />
   </wsdl:message>
   <wsdl:message name="IExternalControlServer_PlayNext_InputMessage">
     <wsdl:part name="parameters" element="tns:PlayNext" />
@@ -77,12 +83,6 @@
   <wsdl:message name="IExternalControlServer_GetCurrentTrackArtworkPath_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCurrentTrackArtworkPathResponse" />
   </wsdl:message>
-  <wsdl:message name="IExternalControlServer_SendHeartBeat_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:SendHeartBeat" />
-  </wsdl:message>
-  <wsdl:message name="IExternalControlServer_SendHeartBeat_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:SendHeartBeatResponse" />
-  </wsdl:message>
   <wsdl:message name="IExternalControlServer_RaiseEventPlaybackSuccess_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RaiseEventPlaybackSuccess" />
   </wsdl:message>
@@ -137,6 +137,12 @@
   <wsdl:message name="IExternalControlServer_RaiseEventPlayingTrackArtworkChanged_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RaiseEventPlayingTrackArtworkChangedResponse" />
   </wsdl:message>
+  <wsdl:message name="IFftDataServer_GetFftDataSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFftDataSize" />
+  </wsdl:message>
+  <wsdl:message name="IFftDataServer_GetFftDataSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFftDataSizeResponse" />
+  </wsdl:message>
   <wsdl:message name="IFftDataServer_GetFftData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFftData" />
   </wsdl:message>
@@ -150,6 +156,10 @@
     </wsdl:operation>
     <wsdl:operation name="DeregisterClient">
       <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/DeregisterClient" message="tns:IExternalControlServer_DeregisterClient_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendHeartbeat">
+      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/SendHeartbeat" message="tns:IExternalControlServer_SendHeartbeat_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/SendHeartbeatResponse" message="tns:IExternalControlServer_SendHeartbeat_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PlayNext">
       <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/PlayNext" message="tns:IExternalControlServer_PlayNext_InputMessage" />
@@ -191,10 +201,6 @@
       <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/GetCurrentTrackArtworkPath" message="tns:IExternalControlServer_GetCurrentTrackArtworkPath_InputMessage" />
       <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/GetCurrentTrackArtworkPathResponse" message="tns:IExternalControlServer_GetCurrentTrackArtworkPath_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SendHeartBeat">
-      <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/SendHeartBeat" message="tns:IExternalControlServer_SendHeartBeat_OutputCallbackMessage" />
-      <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/SendHeartBeatResponse" message="tns:IExternalControlServer_SendHeartBeat_InputCallbackMessage" />
-    </wsdl:operation>
     <wsdl:operation name="RaiseEventPlaybackSuccess">
       <wsdl:output wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackSuccess" message="tns:IExternalControlServer_RaiseEventPlaybackSuccess_OutputCallbackMessage" />
       <wsdl:input wsam:Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackSuccessResponse" message="tns:IExternalControlServer_RaiseEventPlaybackSuccess_InputCallbackMessage" />
@@ -233,6 +239,10 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IFftDataServer">
+    <wsdl:operation name="GetFftDataSize">
+      <wsdl:input wsam:Action="ExternalControl/IFftDataServer/GetFftDataSize" message="tns:IFftDataServer_GetFftDataSize_InputMessage" />
+      <wsdl:output wsam:Action="ExternalControl/IFftDataServer/GetFftDataSizeResponse" message="tns:IFftDataServer_GetFftDataSize_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetFftData">
       <wsdl:input wsam:Action="ExternalControl/IFftDataServer/GetFftData" message="tns:IFftDataServer_GetFftData_InputMessage" />
       <wsdl:output wsam:Action="ExternalControl/IFftDataServer/GetFftDataResponse" message="tns:IFftDataServer_GetFftData_OutputMessage" />

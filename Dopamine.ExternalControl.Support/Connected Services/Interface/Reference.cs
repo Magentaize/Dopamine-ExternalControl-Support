@@ -15,7 +15,7 @@ namespace Dopamine.ExternalControl.Support.Interface {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Track", Namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Track", Namespace="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database.Entities")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Dopamine.ExternalControl.Support.Interface.PlayableTrack))]
     public partial class Track : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -445,7 +445,7 @@ namespace Dopamine.ExternalControl.Support.Interface {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PlayableTrack", Namespace="http://schemas.datacontract.org/2004/07/Dopamine.Common.Database")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PlayableTrack", Namespace="http://schemas.datacontract.org/2004/07/Dopamine.Core.Database")]
     [System.SerializableAttribute()]
     public partial class PlayableTrack : Dopamine.ExternalControl.Support.Interface.Track {
         
@@ -626,6 +626,12 @@ namespace Dopamine.ExternalControl.Support.Interface {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="ExternalControl/IExternalControlServer/DeregisterClient")]
         System.Threading.Tasks.Task DeregisterClientAsync(string sessionId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IExternalControlServer/SendHeartbeat", ReplyAction="ExternalControl/IExternalControlServer/SendHeartbeatResponse")]
+        void SendHeartbeat();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IExternalControlServer/SendHeartbeat", ReplyAction="ExternalControl/IExternalControlServer/SendHeartbeatResponse")]
+        System.Threading.Tasks.Task SendHeartbeatAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IExternalControlServer/PlayNext", ReplyAction="ExternalControl/IExternalControlServer/PlayNextResponse")]
         void PlayNext();
         
@@ -689,9 +695,6 @@ namespace Dopamine.ExternalControl.Support.Interface {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IExternalControlServerCallback {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IExternalControlServer/SendHeartBeat", ReplyAction="ExternalControl/IExternalControlServer/SendHeartBeatResponse")]
-        void SendHeartBeat();
         
         [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IExternalControlServer/RaiseEventPlaybackSuccess", ReplyAction="ExternalControl/IExternalControlServer/RaiseEventPlaybackSuccessResponse")]
         void RaiseEventPlaybackSuccess();
@@ -765,6 +768,14 @@ namespace Dopamine.ExternalControl.Support.Interface {
         
         public System.Threading.Tasks.Task DeregisterClientAsync(string sessionId) {
             return base.Channel.DeregisterClientAsync(sessionId);
+        }
+        
+        public void SendHeartbeat() {
+            base.Channel.SendHeartbeat();
+        }
+        
+        public System.Threading.Tasks.Task SendHeartbeatAsync() {
+            return base.Channel.SendHeartbeatAsync();
         }
         
         public void PlayNext() {
@@ -852,11 +863,17 @@ namespace Dopamine.ExternalControl.Support.Interface {
     [System.ServiceModel.ServiceContractAttribute(Namespace="ExternalControl", ConfigurationName="Interface.IFftDataServer")]
     public interface IFftDataServer {
         
-        [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IFftDataServer/GetFftData", ReplyAction="ExternalControl/IFftDataServer/GetFftDataResponse")]
-        bool GetFftData();
+        [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IFftDataServer/GetFftDataSize", ReplyAction="ExternalControl/IFftDataServer/GetFftDataSizeResponse")]
+        int GetFftDataSize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IFftDataServer/GetFftDataSize", ReplyAction="ExternalControl/IFftDataServer/GetFftDataSizeResponse")]
+        System.Threading.Tasks.Task<int> GetFftDataSizeAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IFftDataServer/GetFftData", ReplyAction="ExternalControl/IFftDataServer/GetFftDataResponse")]
-        System.Threading.Tasks.Task<bool> GetFftDataAsync();
+        void GetFftData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ExternalControl/IFftDataServer/GetFftData", ReplyAction="ExternalControl/IFftDataServer/GetFftDataResponse")]
+        System.Threading.Tasks.Task GetFftDataAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -886,11 +903,19 @@ namespace Dopamine.ExternalControl.Support.Interface {
                 base(binding, remoteAddress) {
         }
         
-        public bool GetFftData() {
-            return base.Channel.GetFftData();
+        public int GetFftDataSize() {
+            return base.Channel.GetFftDataSize();
         }
         
-        public System.Threading.Tasks.Task<bool> GetFftDataAsync() {
+        public System.Threading.Tasks.Task<int> GetFftDataSizeAsync() {
+            return base.Channel.GetFftDataSizeAsync();
+        }
+        
+        public void GetFftData() {
+            base.Channel.GetFftData();
+        }
+        
+        public System.Threading.Tasks.Task GetFftDataAsync() {
             return base.Channel.GetFftDataAsync();
         }
     }
