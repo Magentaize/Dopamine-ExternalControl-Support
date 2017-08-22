@@ -1,5 +1,4 @@
 ﻿using System.IO.MemoryMappedFiles;
-using System.Threading;
 using Dopamine.ExternalControl.Support.Interface;
 
 namespace Dopamine.ExternalControl.Support
